@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.env
+.venv
+venv/
+ENV/
+
+# Data and Logs
+*.log
+*.sqlite
+*.sqlite3
+*.db
+data/
+*.csv
+*.json
+
+# Web/Next.js frontend (if any node_modules are at root)
+node_modules/
+.next/
+out/
+build/
+dist/
+.env*.local
+
+# IDEs and OS files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+.cursor/
