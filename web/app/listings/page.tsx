@@ -41,10 +41,16 @@ export default function ListingsPage() {
     const qs = new URLSearchParams(
       Object.entries(params).map(([k, v]) => [k, String(v)])
     );
-    const res = await fetch(`/api/listings?${qs}`);
-    const json = await res.json();
-    setData(json);
-    setLoading(false);
+    try {
+      const res = await fetch(`/api/listings?${qs}`);
+      if (!res.ok) throw new Error("API returned " + res.status);
+      const json = await res.json();
+      setData(json);
+    } catch (e) {
+      setData({ items: [], total: 0 }); // Fallback on error
+    } finally {
+      setLoading(false);
+    }
   }, [state, riskLabel, minPrice, maxPrice, sortBy, page]);
 
   useEffect(() => { load(); }, [load]);

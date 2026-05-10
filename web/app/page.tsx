@@ -57,8 +57,8 @@ export default function DashboardPage() {
     setError(false);
     if (!silent) setStats(null);
     Promise.all([
-      fetch("/api/stats").then(r => r.json()),
-      fetch("/api/map").then(r => r.json()),
+      fetch("/api/stats").then(r => { if (!r.ok) throw new Error(); return r.json(); }),
+      fetch("/api/map").then(r => { if (!r.ok) throw new Error(); return r.json(); }),
     ]).then(([s, m]) => {
       setStats(s);
       setMarkers(m);
@@ -111,7 +111,8 @@ export default function DashboardPage() {
 
   const pieData = RISK_ORDER
     .map(label => {
-      const f = (stats.risk_distribution as { label: string; count: number }[]).find(r => r.label === label);
+      const dist = stats.risk_distribution as { label: string; count: number }[] | undefined;
+      const f = dist?.find(r => r.label === label);
       return f ? { name: label, value: f.count } : null;
     })
     .filter(Boolean) as { name: string; value: number }[];
