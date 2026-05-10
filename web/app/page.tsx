@@ -57,8 +57,8 @@ export default function DashboardPage() {
     setError(false);
     if (!silent) setStats(null);
     Promise.all([
-      fetch("http://localhost:8000/api/stats").then(r => r.json()),
-      fetch("http://localhost:8000/api/map").then(r => r.json()),
+      fetch("/api/stats").then(r => r.json()),
+      fetch("/api/map").then(r => r.json()),
     ]).then(([s, m]) => {
       setStats(s);
       setMarkers(m);

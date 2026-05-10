@@ -41,7 +41,7 @@ export default function ListingsPage() {
     const qs = new URLSearchParams(
       Object.entries(params).map(([k, v]) => [k, String(v)])
     );
-    const res = await fetch(`http://localhost:8000/api/listings?${qs}`);
+    const res = await fetch(`/api/listings?${qs}`);
     const json = await res.json();
     setData(json);
     setLoading(false);
