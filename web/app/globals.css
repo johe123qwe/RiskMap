@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leaflet CSS */
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --bg-base:   #f0f2f5;
+  --bg-card:   #ffffff;
+  --border:    rgba(0, 0, 0, 0.07);
+  --text-primary: #0f172a;
+  --text-muted:   #64748b;
+  --accent:    #6366f1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg-base);
+  color: #0f172a !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 强制左侧面板所有文字深色可见 */
+aside, aside * {
+  color: inherit;
+}
+aside p, aside span, aside div, aside a {
+  color: inherit;
+}
+
+/* ── 卡片 ──────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* ── 渐变文字 ─────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── 导航下划线动画 ────────────────────────── */
+.nav-link {
+  position: relative;
+  color: #475569;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+.nav-link:hover { color: #0f172a; }
+.nav-link:hover::after { width: 100%; }
+
+/* ── Leaflet 浅色 ─────────────────────────── */
+.leaflet-container {
+  background: #e8edf2 !important;
+}
+.leaflet-control-zoom a {
+  background: #fff !important;
+  color: #475569 !important;
+  border-color: rgba(0,0,0,0.12) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* ── 滚动条 ───────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
