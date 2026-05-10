@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   },
   // 允许在服务器开发模式下通过 IP 访问
   allowedDevOrigins: ['194.163.181.119'],
-  async rewrites() {
+  async rewrites() { 
     return [
       {
         source: '/api/:path*',
