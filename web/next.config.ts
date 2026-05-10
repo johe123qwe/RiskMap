@@ -10,8 +10,8 @@ const nextConfig: NextConfig = {
     ],
   },
   // 允许在服务器开发模式下通过 IP 访问
-  allowedDevOrigins: ['194.163.181.119'],
-  async rewrites() { 
+  allowedDevOrigins: ['194.163.181.119', 'early-lucky-poodle.ngrok-free.app'],
+  async rewrites() {
     return [
       {
         source: '/api/:path*',
