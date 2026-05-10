@@ -33,7 +33,6 @@ ENV/
 *.db
 data/
 *.csv
-*.json
 
 # Web/Next.js frontend (if any node_modules are at root)
 node_modules/
